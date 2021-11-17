@@ -3,6 +3,7 @@ package com.codelab.gdglayoutcodelab
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -21,55 +22,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codelab.gdglayoutcodelab.ui.theme.GDGLayoutCodeLabTheme
+import com.codelab.layouts.LayoutsCodelab
 
-class MainActivity : ComponentActivity() {
+
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             GDGLayoutCodeLabTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    PhotographerCard()
-                }
+                LayoutsCodelab()
             }
         }
     }
 }
 
 @Composable
-fun PhotographerCard(modifier: Modifier = Modifier) {
-    Row(
-        modifier
-            .padding(8.dp)
-            .clip(RoundedCornerShape(4.dp))
-            .background(MaterialTheme.colors.surface)
-            .clickable(onClick = { /* Ignoring onClick */ })
-            .padding(16.dp)
-    ) {
-        Surface(
-            modifier = Modifier.size(50.dp),
-            shape = CircleShape,
-            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
-        ) {
-            // Image goes here
-        }
-        Column(
-            modifier = Modifier
-                .padding(start = 8.dp)
-                .align(Alignment.CenterVertically)
-        ) {
-            Text("Alfred Sisley", fontWeight = FontWeight.Bold)
-            CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-                Text("3 minutes ago", style = MaterialTheme.typography.body2)
-            }
-        }
-    }
+fun Greeting(name: String) {
+    Text(text = "Hello $name!")
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun PhotographerCardPreview() {
+fun DefaultPreview() {
     GDGLayoutCodeLabTheme {
-        PhotographerCard()
+        Greeting("Android")
     }
 }
