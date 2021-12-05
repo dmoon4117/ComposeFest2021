@@ -29,7 +29,7 @@ import java.io.FileOutputStream
 /**
  * Simple on-device screenshot comparator that uses golden images present in
  * `androidTest/assets`. It's used to showcase the [AnimationClockTestRule] used in
- * [AnimatingCircleTests].
+ * [TopAppBarTest].
  *
  * Minimum SDK is O. Densities between devices must match.
  *
